@@ -1,0 +1,11 @@
+[Unit]
+Description=Check ClawPop and OpenClaw Gateway every minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Persistent=true
+AccuracySec=10s
+Unit=gateway-uptime-watch.service
+
+[Install]
+WantedBy=timers.target

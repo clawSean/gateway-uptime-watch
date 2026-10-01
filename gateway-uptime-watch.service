@@ -1,0 +1,17 @@
+[Unit]
+Description=External ClawPop and OpenClaw Gateway uptime check
+Wants=network-online.target
+After=network-online.target tailscaled.service
+
+[Service]
+Type=oneshot
+User=gateway-uptime-watch
+Group=gateway-uptime-watch
+StateDirectory=gateway-uptime-watch
+LoadCredentialEncrypted=twilio.json:/etc/credstore.encrypted/gateway-uptime-watch/twilio.json
+ExecStart=/usr/bin/python3 /opt/gateway-uptime-watch/watchdog.py --config /etc/gateway-uptime-watch/config.json --state /var/lib/gateway-uptime-watch/state.json
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+CapabilityBoundingSet=

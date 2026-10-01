@@ -1,0 +1,7 @@
+{
+  "mac_host": "your-mac-tailnet-name",
+  "gateway_url": "https://your-tailnet-gateway.example/readyz",
+  "probe_timeout_seconds": 8,
+  "gateway_seconds": 300,
+  "mac_seconds": 600
+}
